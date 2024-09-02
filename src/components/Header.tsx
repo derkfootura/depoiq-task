@@ -7,7 +7,6 @@ const Header = () => {
   return (
     <div className='header flex flex-col sm:flex-row items-start'>
       <div className='flex flex-row items-center'>
-        <OrganizationSwitcher />
         <Logo />
       </div>
       <div className='flex flex-row justify-between items-center flex-1 w-full sm:w-fit'>
@@ -18,6 +17,7 @@ const Header = () => {
           ]}
         />
         <div className='flex flex-row items-center gap-3'>
+          <OrganizationSwitcher />
           <UserButton />
         </div>
       </div>
