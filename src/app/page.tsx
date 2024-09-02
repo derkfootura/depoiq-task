@@ -8,6 +8,7 @@ import { useSearchParams } from 'next/navigation';
 import { useRouter } from 'next/navigation';
 
 import { loadErrorMessages, loadDevMessages } from "@apollo/client/dev";
+import { useData } from './_components/DataProvider';
 
 loadDevMessages();
 loadErrorMessages();
@@ -100,10 +101,11 @@ function CrossDepositionAnalysis() {
 
   const page = parseInt(searchParams.get('page') || '1', 10);
   const size = parseInt(searchParams.get('size') || '10', 10);
-  const search = searchParams.get('search') || '';
+
+  const { search: searchText } = useData();
 
   const { loading, error, data, fetchMore } = useQuery(GET_TOPICS_AND_DEPONENTS, {
-    variables: { limit: size, after: (page - 1) * size, search },
+    variables: { limit: size, after: (page - 1) * size, search: searchText },
   });
 
   const [createTopic, { loading: createTopicLoading }] = useMutation(CREATE_TOPIC);
@@ -149,7 +151,7 @@ function CrossDepositionAnalysis() {
   };
 
   const updateUrlAndRefetch = (newPage: number, newSize: number) => {
-    router.push(`?page=${newPage}&size=${newSize}&search=${search}`);
+    router.push(`?page=${newPage}&size=${newSize}&search=${searchText}`);
     fetchMore({
       variables: { limit: newSize, after: (newPage - 1) * newSize },
       updateQuery: (_, { fetchMoreResult }) => fetchMoreResult,

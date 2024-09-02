@@ -1,7 +1,9 @@
 'use client'
 
-import React from 'react';
+import React, { createContext, useState } from 'react';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
+
+const DataContext = createContext({ search: '', setSearch: (search: string) => {} });
 
 const client = new ApolloClient({
   uri: '/api/graphql',
@@ -9,5 +11,20 @@ const client = new ApolloClient({
 });
 
 export default function DataProvider({ children }: { children: React.ReactNode }) {
-  return <ApolloProvider client={client}>{children}</ApolloProvider>;
+  const [search, setSearch] = useState('');
+  return (
+    <DataContext.Provider value={{ search, setSearch }}>
+      <ApolloProvider client={client}>
+        {children}
+      </ApolloProvider>
+    </DataContext.Provider>
+  );
+}
+
+export const useData = () => {
+  const context = React.useContext(DataContext);
+  if (!context) {
+    throw new Error('useData must be used within a DataProvider');
+  }
+  return context;
 }

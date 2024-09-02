@@ -9,7 +9,7 @@ import DataProvider from "./_components/DataProvider";
 
 export const metadata: Metadata = {
   title: "DepoIQ Task",
-  description: "DepoIQ Task",
+  icons: ['/favicon.ico'],
 };
 
 export default function RootLayout({

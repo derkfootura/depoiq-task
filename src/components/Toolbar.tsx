@@ -8,10 +8,10 @@ import {
   UserOutlined
 } from '@ant-design/icons'
 import { Breadcrumb, Button, Input, Tag } from 'antd';
-// import { useData } from '../contexts/DataContext';
+import { useData } from '../app/_components/DataProvider';
 
 const Toolbar = () => {
-  // const { setSearch } = useData();
+  const { setSearch } = useData();
   const [searchText, setSearchText] = React.useState('');
 
   return (
@@ -50,7 +50,7 @@ const Toolbar = () => {
             suffix={<SearchOutlined />}
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
-            // onKeyDown={(e) => e.key === "Enter" && setSearch(searchText)}
+            onKeyDown={(e) => e.key === "Enter" && setSearch(searchText)}
           />
         </div>
       </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import Logo from './Logo';
 import { Tabs } from 'antd';
+import { OrganizationSwitcher, UserButton } from '@clerk/nextjs';
 
 const Header = () => {
   return (
@@ -11,7 +12,17 @@ const Header = () => {
           { label: 'Deponents', key: 'deponent' },
         ]}
         tabBarExtraContent={{
-          left: <Logo />
+          left: (
+            <div className='flex flex-row items-center'>
+              <OrganizationSwitcher />
+              <Logo />
+            </div>
+          ),
+          right: (
+            <div className='flex flex-row items-center gap-3'>
+              <UserButton  />
+            </div>
+          )
         }}
       />
     </div>
