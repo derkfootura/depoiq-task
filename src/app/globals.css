@@ -15,16 +15,19 @@
 }
 
 .header {
-  padding: 0 !important;
+  padding: 0.25rem 2rem;
 }
 
 .header .ant-tabs-nav {
-  padding: 0.25rem 2rem;
   margin: 0;
 }
 
 .header .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
   color: #000;
+}
+
+.ant-tabs-top>.ant-tabs-nav::before {
+  border: none !important;
 }
 
 .logo {
@@ -223,5 +226,10 @@
     min-width: unset;
     flex: unset;
     margin-top: 0.5rem;
+  }
+
+  .header .ant-tabs-nav {
+    flex-direction: column;
+    align-items: center;
   }
 }
