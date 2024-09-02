@@ -1,6 +1,6 @@
 # DepoIQ Task Project
 
-This is a Next.js 14 project that utilizes the new app router inside the `src` folder. The project is styled using Tailwind CSS and Ant Design (antd) for the user interface. For database management, it connects to MongoDB using Mongoose. The project also utilizes Apollo Server and Apollo Client for GraphQL API handling. It is fully dockerized for easy deployment and environment management.
+This is a Next.js 14 project that utilizes the new app router inside the `src` folder. The project is styled using Tailwind CSS and Ant Design (antd) for the user interface. For database management, it connects to MongoDB using Mongoose. The project also utilizes Apollo Server and Apollo Client for GraphQL API handling, Clerk for authentication, and AES for encryption. It is fully dockerized for easy deployment and environment management.
 
 ## Table of Contents
 
@@ -82,7 +82,8 @@ The project is organized as follows:
     │   │   └── globals.css # Global styles (Tailwind CSS)
     │   ├── components      # Reusable UI components
     │   ├── libs            # Utility functions and helpers
-    │   └── models          # MongoDB schemas
+    │   ├── models          # MongoDB schemas
+    │   └── middleware.ts   # Middleware for authenticate routes using Clerk
     ├── public              # Static files
     ├── .env                # Environment variables
     ├── docker-compose.yml

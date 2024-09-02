@@ -29,6 +29,5 @@ export async function seedDeponents() {
     ];
 
     await Deponent.insertMany(deponents);
-    console.log('Deponents seeded successfully');
   }
 }

@@ -209,6 +209,7 @@ function CrossDepositionAnalysis() {
       <div style={{ padding: 16 }}>
         <Pagination
           total={total}
+          pageSizeOptions={[5, 10, 20, 50, 100]}
           showSizeChanger
           pageSize={size}
           current={page}
