@@ -78,7 +78,10 @@ const resolvers = {
 
       let query: any = {};
       if (search) {
-        query.content = { $regex: search, $options: 'i' };
+        // query.$or = [
+        //   { content: { $regex: search, $options: 'i' } },
+        //   { 'analysisResults.content': { $regex: search, $options: 'i' } }
+        // ];
       }
 
       const totalCount = await Topic.countDocuments(query);

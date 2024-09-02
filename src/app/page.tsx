@@ -102,10 +102,10 @@ function CrossDepositionAnalysis() {
   const page = parseInt(searchParams.get('page') || '1', 10);
   const size = parseInt(searchParams.get('size') || '10', 10);
 
-  const { search: searchText } = useData();
+  const { search } = useData();
 
   const { loading, error, data, fetchMore } = useQuery(GET_TOPICS_AND_DEPONENTS, {
-    variables: { limit: size, after: (page - 1) * size, search: searchText },
+    variables: { limit: size, after: (page - 1) * size, search },
   });
 
   const [createTopic, { loading: createTopicLoading }] = useMutation(CREATE_TOPIC);
@@ -151,7 +151,7 @@ function CrossDepositionAnalysis() {
   };
 
   const updateUrlAndRefetch = (newPage: number, newSize: number) => {
-    router.push(`?page=${newPage}&size=${newSize}&search=${searchText}`);
+    router.push(`?page=${newPage}&size=${newSize}`);
     fetchMore({
       variables: { limit: newSize, after: (newPage - 1) * newSize },
       updateQuery: (_, { fetchMoreResult }) => fetchMoreResult,

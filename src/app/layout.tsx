@@ -22,10 +22,10 @@ export default function RootLayout({
       <html lang="en">
         <body>
           <div className='main-layout'>
-            <Header />
-            <Toolbar />
-            <Tagsbar />
             <DataProvider>
+              <Header />
+              <Toolbar />
+              <Tagsbar />
               <div className='main-content'>{children}</div>
             </DataProvider>
           </div>
