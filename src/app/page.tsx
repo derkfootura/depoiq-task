@@ -211,9 +211,8 @@ function CrossDepositionAnalysis() {
           total={total}
           showSizeChanger
           pageSize={size}
-          onShowSizeChange={(_, newSize) => updateUrlAndRefetch(1, newSize)}
           current={page}
-          onChange={(newPage) => updateUrlAndRefetch(newPage, size)}
+          onChange={(newPage, newSize) => updateUrlAndRefetch(newPage, newSize)}
         />
       </div>
       <Modal
