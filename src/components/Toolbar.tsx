@@ -8,7 +8,7 @@ import {
   UserOutlined
 } from '@ant-design/icons'
 import { Breadcrumb, Button, Input, Tag } from 'antd';
-import { useData } from '../app/_components/DataProvider';
+import { useData } from './DataProvider';
 
 const Toolbar = () => {
   const { setSearch } = useData();

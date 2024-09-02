@@ -1,36 +1,104 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# DepoIQ Task Project
+
+This is a Next.js 14 project that utilizes the new app router inside the `src` folder. The project is styled using Tailwind CSS and Ant Design (antd) for the user interface. For database management, it connects to MongoDB using Mongoose. The project also utilizes Apollo Server and Apollo Client for GraphQL API handling. It is fully dockerized for easy deployment and environment management.
+
+## Table of Contents
+
+- [Getting Started](#getting-started)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Running the Project](#running-the-project)
+- [Folder Structure](#folder-structure)
+- [Technologies Used](#technologies-used)
 
 ## Getting Started
 
-First, run the development server:
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Prerequisites
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Node.js (v18 or later)
+- Docker (if you want to use Docker for running the project)
+- MongoDB (if not using Docker or a Cloud instance, make sure MongoDB is installed and running locally)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Installation
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. **Clone the repository:**
 
-## Learn More
+   ```bash
+   git clone https://github.com/derkfootura/depoiq-task.git
+   cd depoiq-task
 
-To learn more about Next.js, take a look at the following resources:
+2. **Install dependencies:**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   Run the following command to install the necessary packages:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+   ```bash
+   npm install
 
-## Deploy on Vercel
+3. **Create a .env file:**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   Copy the .env.sample file to .env and set your environment variables.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+   Then, put your actual values.
+
+## Running the Project
+### With Docker
+Start the development server:
+
+  To run the project locally without Docker, use the following command:
+
+   ```bash
+   npm run dev
+   ```
+   The project will be available at http://localhost:3000
+
+### With Docker
+1. Build and run the Docker containers:
+
+   If you prefer to run the project inside Docker containers, use the following command:
+
+   ```bash
+   npm run docker:run
+   ```
+   The project will be available at http://localhost:3000.
+
+2. Stopping the Docker containers:
+
+   To stop the running Docker containers, use the following command:
+
+   ```bash
+   docker compose down
+   ```
+
+## Folder Structure
+The project is organized as follows:
+
+    ├── src
+    │   ├── app             # Next.js app router components
+    │   │   ├── api         # Next.js serving api
+    │   │   ├── layout.tsx  # Page Layout
+    │   │   ├── page.tsx    # Page Main Content
+    │   │   └── globals.css # Global styles (Tailwind CSS)
+    │   ├── components      # Reusable UI components
+    │   ├── libs            # Utility functions and helpers
+    │   └── models          # MongoDB schemas
+    ├── public              # Static files
+    ├── .env                # Environment variables
+    ├── docker-compose.yml
+    ├── Dockerfile
+    ├── tailwind.config.js
+    ├── next.config.js
+    └── package.json
+
+## Technologies Used
+This project utilizes the following technologies:
+
+- **Next.js 14**: The React framework for production.
+- **Tailwind CSS**: A utility-first CSS framework for rapid UI development.
+- **Ant Design (antd)**: A popular UI component library.
+- **Mongoose**: An Object Data Modeling (ODM) library for MongoDB and Node.js.
+- **MongoDB**: A NoSQL database for storing data.
+- **Apollo Server**: A fully-featured GraphQL server.
+- **Apollo Client**: A comprehensive state management library for JavaScript that enables you to manage both local and remote data with GraphQL.
+- **Docker**: A platform to develop, ship, and run applications inside containers.

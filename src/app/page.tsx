@@ -8,7 +8,7 @@ import { useSearchParams } from 'next/navigation';
 import { useRouter } from 'next/navigation';
 
 import { loadErrorMessages, loadDevMessages } from "@apollo/client/dev";
-import { useData } from './_components/DataProvider';
+import { useData } from '../components/DataProvider';
 
 loadDevMessages();
 loadErrorMessages();

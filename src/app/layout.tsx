@@ -5,7 +5,7 @@ import Header from '../components/Header';
 import Toolbar from '../components/Toolbar';
 import Tagsbar from '../components/Tagsbar';
 import { ClerkProvider } from "@clerk/nextjs";
-import DataProvider from "./_components/DataProvider";
+import DataProvider from "../components/DataProvider";
 
 export const metadata: Metadata = {
   title: "DepoIQ Task",
