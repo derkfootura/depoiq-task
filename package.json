@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "docker:dev": "sudo docker compose -f dev.docker-compose.yml --env-file .env up"
   },
   "dependencies": {
     "@apollo/client": "^3.11.5",
